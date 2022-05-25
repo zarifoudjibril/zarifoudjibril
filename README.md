@@ -1,5 +1,5 @@
-- 👋 Hi, I’m Zarifou Djibril
-- 👀 I’m interested in Frontend Web Development
+- 👋 Hi, I’m Zarifou Djibril, I currently work as a part ROBOTICS AND PROGRAMMING teacher at the Maarif International Schools in Togo.
+- 👀 I’m interested in Frontend Web Development and Hydroinformatics.
 - 🌱 I’m currently learning JavaScript 
 - 💞️ I’m looking for an entry level job in Frontend Development
 - 📫 How to reach me: https://www.linkedin.com/in/zarifou-djibril/
