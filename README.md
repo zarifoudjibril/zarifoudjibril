@@ -1,5 +1,5 @@
-- 👋 Hi, I’m Zarifou Djibril, I currently work as Oparations and Communications Assistant at the World Meteorological Organization in Geneva
-- 👀 I’m interested in Data Analysis and Hydroinformatics.
+- 👋 Hi, I’m Zarifou Djibril, I currently work as Data Management Consultant at the World Meteorological Organization in Geneva
+- 👀 I’m interested in Data Analysis and Data Science
 - 🌱 Recently completed Python for Everybody @ [PY4E](https://www.py4e.com)
 - 💞️ I’m looking for an entry level job in Data Analysis or Data Science
 - 📫 How to reach me: [linkedIn](https://www.linkedin.com/in/zarifou-djibril/)
