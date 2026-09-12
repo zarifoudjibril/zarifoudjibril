@@ -111,11 +111,11 @@ export const portfolioData = {
     ],
     projects: [
       {
-        id: "soff-compliance-system",
-        title: "SOFF Data Compliance & Quality Tracking System",
-        description: "An operational database and monitoring system tracking country-level adherence to international meteorological data standards across 40+ countries.",
+        id: "soff-monitoring",
+        title: "SOFF Monitoring & Evaluation Dashboard",
+        description: "An operational tracking and monitoring system measuring country-level implementation progress, milestone adherence, and compliance across 40+ beneficiary countries.",
         longDescription: "Architected at the World Meteorological Organization (WMO) to monitor international infrastructure investments. Centralized multi-country compliance metrics, automated gap detection in national IT systems, and generated executive summaries for governing board steering meetings.",
-        category: "Data Governance",
+        category: "Data Governance & M&E",
         tags: ["SQL", "Power BI", "Data Standards", "Compliance", "Gap Analysis"],
         image: "./images/monitoring.png",
         featured: true,
@@ -125,7 +125,7 @@ export const portfolioData = {
       {
         id: "soff-portfolio",
         title: "SOFF Portfolio",
-        description: "Interactive Power BI and database system monitoring Systematic Observations Financing Facility implementation performance across 60+ developing nations and Small Island Developing States (SIDS).",
+        description: "Interactive dashboard displaying the global coverage of SOFF funding across beneficiary countries, total allocated budgets, implementing partners, and the specific readiness & investment phases of each country.",
         longDescription: "Designed relational tracking models and interactive dashboards querying multi-source project data. Enabled Secretariat stakeholders to identify bottlenecks, evaluate performance indicators, and drive resource allocation decisions.",
         category: "Business Intelligence",
         tags: ["Power BI", "SQL", "M&E Framework", "IBM Cognos", "Excel Advanced"],
@@ -406,11 +406,11 @@ export const portfolioData = {
     ],
     projects: [
       {
-        id: "soff-compliance-system",
-        title: "Système de Suivi de Conformité & Qualité des Données SOFF",
-        description: "Outil opérationnel et base de données de suivi de l'adhérence aux normes internationales d'observation météorologique dans plus de 40 pays.",
+        id: "soff-monitoring",
+        title: "Tableau de Bord de Suivi & Évaluation (S&E) SOFF",
+        description: "Outil opérationnel et base de données de suivi de l'état d'avancement des projets, du respect des jalons et de la conformité aux normes internationales dans plus de 40 pays.",
         longDescription: "Développé pour l'Organisation Météorologique Mondiale (OMM) afin d'assurer la conformité des infrastructures de collecte de données. Centralisation des indicateurs, détection automatique des écarts et production de rapports exécutifs pour le Comité de Pilotage.",
-        category: "Gouvernance Data",
+        category: "Gouvernance & S&E",
         tags: ["SQL", "Power BI", "Normes de Données", "Conformité", "Gap Analysis"],
         image: "./images/monitoring.png",
         featured: true,
@@ -420,7 +420,7 @@ export const portfolioData = {
       {
         id: "soff-portfolio",
         title: "SOFF Portfolio",
-        description: "Tableau de bord mondial et interactif de suivi de la mise en œuvre des projets SOFF dans plus de 60 pays (PMA et PEID).",
+        description: "Tableau de bord interactif présentant la couverture mondiale des financements SOFF par pays bénéficiaire, les budgets alloués, les entités de mise en œuvre et les phases d'avancement (Readiness & Investment).",
         longDescription: "Conception de modèles relationnels et de tableaux de bord dynamiques pour interroger les données du programme. Permet aux instances de gouvernance de suivre la performance et d'orienter les décisions stratégiques.",
         category: "Business Intelligence",
         tags: ["Power BI", "SQL", "Suivi & Évaluation", "IBM Cognos", "Excel Avancé"],

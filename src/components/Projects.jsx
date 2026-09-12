@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
-import ProjectModal from './ProjectModal';
 import { ExternalLink, Search, Sparkles, FolderGit2 } from 'lucide-react';
-import { LinkedinIcon } from './Icons';
 
 export default function Projects() {
   const { lang } = useLanguage();
@@ -14,7 +12,6 @@ export default function Projects() {
   const categories = [allLabel, ...new Set(projects.map((p) => p.category))];
   const [selectedCategory, setSelectedCategory] = useState(allLabel);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeModalProject, setActiveModalProject] = useState(null);
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
@@ -35,13 +32,13 @@ export default function Projects() {
         <div className="flex flex-col items-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-widest mb-3">
             <FolderGit2 size={14} />
-            <span>{lang === 'en' ? 'Key Projects & Case Studies' : 'Études de Cas & Projets'}</span>
+            <span>{lang === 'en' ? 'Key Projects & Dashboards' : 'Tableaux de Bord & Projets'}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             {lang === 'en' ? (
-              <>Global Data Systems & <span className="text-gradient">Case Studies</span></>
+              <>Global Data Systems & <span className="text-gradient">Dashboards</span></>
             ) : (
-              <>Systèmes de Données & <span className="text-gradient">Réalisations</span></>
+              <>Systèmes de Données & <span className="text-gradient">Tableaux de Bord</span></>
             )}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
@@ -107,8 +104,7 @@ export default function Projects() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="glass-card rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
-                onClick={() => setActiveModalProject(project)}
+                className="glass-card rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300"
               >
                 {/* Thumbnail Header */}
                 <div className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800 max-h-64">
@@ -117,7 +113,6 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
                       className="block w-full h-full relative group/img cursor-pointer"
                       title={lang === 'en' ? 'Click to open live dashboard' : 'Cliquer pour ouvrir le tableau de bord'}
                     >
@@ -138,7 +133,7 @@ export default function Projects() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                       loading="lazy"
                     />
                   )}
@@ -163,7 +158,6 @@ export default function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
                           className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors inline-flex items-center gap-1.5 group/link"
                         >
                           <span>{project.title}</span>
@@ -171,7 +165,7 @@ export default function Projects() {
                         </a>
                       </h3>
                     ) : (
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                         {project.title}
                       </h3>
                     )}
@@ -195,29 +189,32 @@ export default function Projects() {
 
                     {/* Footer Action Links */}
                     <div className="flex items-center justify-between pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
-                      <button
-                        onClick={() => setActiveModalProject(project)}
-                        className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"
-                      >
-                        <span>{lang === 'en' ? 'Read Case Study' : "Lire l'Étude"}</span>
-                        <ExternalLink size={13} />
-                      </button>
-
                       {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-all hover:scale-105"
-                        >
-                          <span>{lang === 'en' ? 'Live Dashboard' : 'Tableau de Bord'}</span>
-                          <ExternalLink size={12} />
-                        </a>
+                        <>
+                          <span className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                            <span>{lang === 'en' ? 'Live System' : 'Système en Ligne'}</span>
+                          </span>
+
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-md shadow-brand-500/20 transition-all hover:scale-105"
+                          >
+                            <span>{lang === 'en' ? 'Live Dashboard' : 'Tableau de Bord'}</span>
+                            <ExternalLink size={13} />
+                          </a>
+                        </>
                       ) : (
-                        <span className="text-xs text-slate-400 font-medium">
-                          WMO / OMM
-                        </span>
+                        <div className="flex items-center justify-between w-full">
+                          <span className="text-xs text-slate-400 font-medium">
+                            {lang === 'en' ? 'Internal Architecture' : 'Architecture Interne'}
+                          </span>
+                          <span className="text-xs text-slate-400 font-mono">
+                            WMO / OMM
+                          </span>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -227,13 +224,6 @@ export default function Projects() {
           </div>
         )}
       </div>
-
-      {activeModalProject && (
-        <ProjectModal
-          project={activeModalProject}
-          onClose={() => setActiveModalProject(null)}
-        />
-      )}
     </section>
   );
 }
