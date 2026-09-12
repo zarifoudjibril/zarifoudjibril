@@ -159,13 +159,26 @@ export default function Projects() {
                         onClick={() => setActiveModalProject(project)}
                         className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"
                       >
-                        <span>{lang === 'en' ? 'Read Full Case Study' : "Lire l'Étude de Cas"}</span>
+                        <span>{lang === 'en' ? 'Read Case Study' : "Lire l'Étude"}</span>
                         <ExternalLink size={13} />
                       </button>
 
-                      <span className="text-xs text-slate-400 font-medium">
-                        WMO / OMM Programme
-                      </span>
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-all hover:scale-105"
+                        >
+                          <span>{lang === 'en' ? 'Live Dashboard' : 'Tableau de Bord'}</span>
+                          <ExternalLink size={12} />
+                        </a>
+                      ) : (
+                        <span className="text-xs text-slate-400 font-medium">
+                          WMO / OMM
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

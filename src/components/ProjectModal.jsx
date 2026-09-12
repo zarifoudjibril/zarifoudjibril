@@ -56,6 +56,18 @@ export default function ProjectModal({ project, onClose }) {
               {project.category} — {lang === 'en' ? 'International System Implementation' : 'Déploiement Opérationnel International'}
             </p>
           </div>
+
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-semibold shadow-md shadow-brand-500/25 transition-all hover:scale-105 shrink-0"
+            >
+              <span>{lang === 'en' ? 'Open Live Dashboard' : 'Ouvrir le Tableau de Bord'}</span>
+              <ExternalLink size={16} />
+            </a>
+          )}
         </div>
 
         <div className="mb-6">
