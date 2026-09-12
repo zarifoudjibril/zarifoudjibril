@@ -9,10 +9,13 @@ import {
   MessageSquare, 
   Phone,
   CheckCircle2,
+  AlertCircle,
   MapPin
 } from 'lucide-react';
 import { LinkedinIcon } from './Icons';
 import confetti from 'canvas-confetti';
+
+const WEB3FORMS_ACCESS_KEY = "ebcf6c63-e82f-4781-a907-5047d1a6e432";
 
 export default function Contact() {
   const { lang } = useLanguage();
@@ -20,7 +23,8 @@ export default function Contact() {
   const { personal, socials, contact } = data;
 
   const [copied, setCopied] = useState(false);
-  const [formStatus, setFormStatus] = useState('idle');
+  const [formStatus, setFormStatus] = useState('idle'); // idle | submitting | success | error
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,28 +42,45 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setErrorMessage('');
 
-    const encodedData = new URLSearchParams({
-      'form-name': 'contact',
-      ...formData,
-    }).toString();
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodedData,
-    })
-      .then(() => {
-        setFormStatus('success');
-        triggerConfetti();
-      })
-      .catch(() => {
-        setFormStatus('success');
-        triggerConfetti();
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'New Contact Submission from Portfolio',
+          message: formData.message,
+          from_name: 'Zarifou Djibril Portfolio Website',
+        }),
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus('success');
+        triggerConfetti();
+      } else {
+        setFormStatus('error');
+        setErrorMessage(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setFormStatus('error');
+      setErrorMessage(
+        lang === 'en'
+          ? 'Network error. Please try again or email me directly at ' + socials.email
+          : 'Erreur réseau. Veuillez réessayer ou m’écrire directement à ' + socials.email
+      );
+    }
   };
 
   const triggerConfetti = () => {
@@ -203,20 +224,13 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  onSubmit={handleSubmit}
-                  className="space-y-4"
-                >
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
-                    <label>
-                      Don’t fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {formStatus === 'error' && (
+                    <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs flex items-center gap-2 animate-in fade-in">
+                      <AlertCircle size={18} className="shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -286,7 +300,10 @@ export default function Contact() {
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50"
                   >
                     {formStatus === 'submitting' ? (
-                      <span>{contact.sendingButton}</span>
+                      <span className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                        <span>{contact.sendingButton}</span>
+                      </span>
                     ) : (
                       <>
                         <Send size={18} />
