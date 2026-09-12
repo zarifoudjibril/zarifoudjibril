@@ -188,35 +188,24 @@ export default function Projects() {
                     </div>
 
                     {/* Footer Action Links */}
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
-                      {project.liveUrl ? (
-                        <>
-                          <span className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-                            <span>{lang === 'en' ? 'Live System' : 'Système en Ligne'}</span>
-                          </span>
+                    {project.liveUrl && (
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
+                        <span className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                          <span>{lang === 'en' ? 'Live System' : 'Système en Ligne'}</span>
+                        </span>
 
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-md shadow-brand-500/20 transition-all hover:scale-105"
-                          >
-                            <span>{lang === 'en' ? 'Live Dashboard' : 'Tableau de Bord'}</span>
-                            <ExternalLink size={13} />
-                          </a>
-                        </>
-                      ) : (
-                        <div className="flex items-center justify-between w-full">
-                          <span className="text-xs text-slate-400 font-medium">
-                            {lang === 'en' ? 'Internal Architecture' : 'Architecture Interne'}
-                          </span>
-                          <span className="text-xs text-slate-400 font-mono">
-                            WMO / OMM
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-md shadow-brand-500/20 transition-all hover:scale-105"
+                        >
+                          <span>{lang === 'en' ? 'Live Dashboard' : 'Tableau de Bord'}</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
