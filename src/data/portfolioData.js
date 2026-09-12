@@ -18,7 +18,7 @@ export const portfolioData = {
       name: "Zarifou Djibril",
       role: "Database Analyst | Data Analyst",
       tagline: "Bridging operational data, relational database architecture, and executive Power BI analytics for global impact across 60+ countries.",
-      location: "Lomé, Togo (Relocating to Waterloo, ON) | Open to Remote / On-Site",
+      location: "Lomé, Togo | Open to Remote / On-Site",
       status: "Available for full-time & permanent roles",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
       bioParagraphs: [
@@ -37,8 +37,8 @@ export const portfolioData = {
     ],
     socials: {
       linkedin: "https://linkedin.com/in/zarifou-djibril",
-      email: "zarifoud@gmail.com",
-      phone: "(+228) 93 47 56 12",
+      email: "hidden",
+      phone: "hidden",
       github: "https://github.com",
     },
     titles: [
