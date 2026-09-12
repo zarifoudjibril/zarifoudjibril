@@ -111,6 +111,18 @@ export const portfolioData = {
     ],
     projects: [
       {
+        id: "purewaterpro",
+        title: "PureWater Pro - Factory ERP & Water Production SaaS",
+        description: "A comprehensive SaaS platform designed for water manufacturing factories, managing automated production sessions, raw material stocks, POS counter sales, delivery fleets, and financial balances.",
+        longDescription: "Engineered PureWater Pro SaaS to streamline end-to-end operations for packaged water production factories. Features live production batch tracking with automated loss rate calculations, raw materials deduction, multi-point POS sales, delivery route reconciliation (tricycles/trucks), client debt tracking, and role-based permissions (SuperAdmin, Managers, Operators).",
+        category: "Full Stack & SaaS",
+        tags: ["SaaS ERP", "React", "Database Architecture", "POS & Inventory", "Financial Accounting"],
+        image: "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&q=80&w=900",
+        featured: true,
+        liveUrl: "https://purewaterpro.app",
+        metrics: ["Live Production Tracking", "POS & Route Management", "Multi-Tenant SaaS Architecture"],
+      },
+      {
         id: "soff-monitoring",
         title: "SOFF Monitoring & Evaluation Dashboard",
         description: "An operational tracking and monitoring system measuring country-level implementation progress, milestone adherence, and compliance across 40+ beneficiary countries.",
@@ -405,6 +417,18 @@ export const portfolioData = {
       { language: "Tem (Cotocoli)", level: "Langue maternelle", percent: 100 },
     ],
     projects: [
+      {
+        id: "purewaterpro",
+        title: "PureWater Pro - ERP & Gestion de Production d'Eau (SaaS)",
+        description: "Plateforme SaaS complète de gestion d'usines de production et distribution d'eau : suivi en direct des sessions d'ensachage, gestion des stocks de matières premières, caisse point de vente (POS) et tournées de livraison.",
+        longDescription: "Conception et développement de PureWater Pro SaaS pour piloter l'intégralité des opérations d'usines de production d'eau en sachet. Intègre le calcul automatique des taux de perte de production, la déduction des bobines/emballages, le suivi des tournées de livraison (tricycles/camions), la gestion des créances clients et le bilan financier d'exploitation.",
+        category: "Full Stack & SaaS",
+        tags: ["SaaS ERP", "React", "Architecture de Données", "Gestion de Stocks & Caisse", "Comptabilité d'Exploitation"],
+        image: "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&q=80&w=900",
+        featured: true,
+        liveUrl: "https://purewaterpro.app",
+        metrics: ["Suivi de Production en Direct", "Gestion de Caisse & Tournées", "Architecture Multi-Usines"],
+      },
       {
         id: "soff-monitoring",
         title: "Tableau de Bord de Suivi & Évaluation (S&E) SOFF",
