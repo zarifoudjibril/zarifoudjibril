@@ -112,19 +112,44 @@ export default function Projects() {
               >
                 {/* Thumbnail Header */}
                 <div className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800 max-h-64">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="block w-full h-full relative group/img cursor-pointer"
+                      title={lang === 'en' ? 'Click to open live dashboard' : 'Cliquer pour ouvrir le tableau de bord'}
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-semibold backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                          <span>{lang === 'en' ? 'Open Dashboard' : 'Ouvrir Dashboard'}</span>
+                          <ExternalLink size={13} />
+                        </span>
+                      </div>
+                    </a>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  )}
+
                   {project.featured && (
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md pointer-events-none">
                       <Sparkles size={12} />
                       <span>{lang === 'en' ? 'Featured System' : 'Système Clé'}</span>
                     </div>
                   )}
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-medium">
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-medium pointer-events-none">
                     {project.category}
                   </div>
                 </div>
@@ -132,9 +157,24 @@ export default function Projects() {
                 {/* Card Body */}
                 <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                      {project.title}
-                    </h3>
+                    {project.liveUrl ? (
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors inline-flex items-center gap-1.5 group/link"
+                        >
+                          <span>{project.title}</span>
+                          <ExternalLink size={16} className="text-brand-500 opacity-70 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 transition-all" />
+                        </a>
+                      </h3>
+                    ) : (
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                        {project.title}
+                      </h3>
+                    )}
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                       {project.description}
                     </p>
