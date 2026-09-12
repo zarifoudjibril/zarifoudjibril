@@ -105,7 +105,7 @@ export const portfolioData = {
     ],
     languages: [
       { language: "French", level: "Fluent (C2 / Working Language)", percent: 100 },
-      { language: "English", level: "Fluent (C1/C2)", percent: 95 },
+      { language: "English", level: "Fluent (C1/B2)", percent: 90 },
       { language: "Turkish", level: "Fluent (C1)", percent: 85 },
       { language: "Tem (Cotocoli)", level: "Native Language", percent: 100 },
     ],
@@ -400,7 +400,7 @@ export const portfolioData = {
     ],
     languages: [
       { language: "Français", level: "Courant (C2, langue de travail)", percent: 100 },
-      { language: "Anglais", level: "Courant (C1/C2)", percent: 95 },
+      { language: "Anglais", level: "Courant (C1/B2)", percent: 90 },
       { language: "Turc", level: "Courant (C1)", percent: 85 },
       { language: "Tem (Cotocoli)", level: "Langue maternelle", percent: 100 },
     ],
