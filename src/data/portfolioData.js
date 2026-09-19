@@ -344,8 +344,8 @@ export const portfolioData = {
     ],
     socials: {
       linkedin: "https://linkedin.com/in/zarifou-djibril",
-      email: "zarifoud@gmail.com",
-      phone: "(+228) 93 47 56 12",
+      email: "hidden",
+      phone: "hidden",
       github: "https://github.com",
     },
     titles: [
